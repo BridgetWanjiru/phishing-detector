@@ -115,9 +115,4 @@ Open http://localhost:3000. It calls the backend at
   count, suspicious keywords, etc.) — there's no live WHOIS/domain-age or
   page-content check, which real phishing detectors usually add.
 
-## Possible next steps
 
-- Add domain age / WHOIS lookup as a feature (requires a live API call).
-- Try gradient boosting (XGBoost/LightGBM) and compare.
-- Add a `/explain` endpoint using SHAP values instead of hand-written signal rules.
-- Deploy backend (Render/Fly.io) + frontend (Vercel) and link a live demo.
