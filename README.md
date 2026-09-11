@@ -97,22 +97,6 @@ Open http://localhost:3000. It calls the backend at
 `http://localhost:8000` by default — override with
 `NEXT_PUBLIC_API_URL` if you deploy the backend elsewhere.
 
-## Model notes / honest limitations
 
-- Trained on the **PhiUSIIL Phishing URL Dataset** (~235k URLs total; this
-  repo ships a ~34k-row sample). Label 1 = legitimate, 0 = phishing in the
-  source data; `train.py` flips this so the model's positive class (1) =
-  phishing, matching the API's `risk_score`.
-- Test-set accuracy/ROC-AUC came out very high (~0.99 AUC). Be skeptical of
-  that number in an interview — the single strongest feature is "uses
-  HTTPS or not," which is a decent but coarse signal and partly an
-  artifact of this dataset (older phishing sites skew HTTP). A more
-  rigorous version would test on a newer/harder dataset where phishing
-  sites increasingly use HTTPS too, and would benchmark against a
-  no-HTTPS-feature baseline to see how much the other 25 features
-  actually contribute.
-- All features are lexical/structural (URL length, entropy, subdomain
-  count, suspicious keywords, etc.) — there's no live WHOIS/domain-age or
-  page-content check, which real phishing detectors usually add.
 
 
